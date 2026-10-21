@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; frame-src 'none'; upgrade-insecure-requests" />
+  <meta name="description" content="Sahar Rao, neuroscience student at UC Riverside: four rebuilt websites shown as before-and-after figures, each with its graded original preserved." />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Sahar Rao · Web work, before and after</title>
+  <link rel="preload" href="assets/fonts/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#figures">Skip to the work</a>
+
+  <header class="mast">
+    <a class="mast-name" href="./">Sahar Rao</a>
+    <nav aria-label="Primary">
+      <a href="#figures">Work</a>
+      <a href="#method">Method</a>
+      <a href="https://github.com/SRao189">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">
+        <span class="hero-word">Baseline.</span>
+        <span class="hero-word">Intervention.</span>
+        <span class="hero-word">Result.</span>
+      </h1>
+      <p class="hero-lead">
+        I'm Sahar Rao, a neuroscience student at UC Riverside. I rebuilt four of my graded
+        web-design projects and kept every original, so each figure below is a before and after
+        you can check for yourself: panel <b class="key-a">a</b> as graded, panel <b class="key-b">b</b> revised.
+      </p>
+      <ol class="fig-index" aria-label="Figures">
+        <li><a href="#fig-1"><span>Fig. 1</span> Intel's climate goals, checked</a></li>
+        <li><a href="#fig-2"><span>Fig. 2</span> The same story, in Arabic</a></li>
+        <li><a href="#fig-3"><span>Fig. 3</span> Fran's Flowers</a></li>
+        <li><a href="#fig-4"><span>Fig. 4</span> A check-in desk for a summit</a></li>
+      </ol>
+    </section>
+
+    <div id="figures">
+      <section class="fig" id="fig-1" aria-labelledby="fig-1-title">
+        <div class="fig-stage">
+          <div class="plate" data-plate>
+            <picture class="plate-a">
+              <source media="(max-width: 899px)" srcset="assets/shots/intel-timeline-before-390.webp" width="390" height="844" />
+              <img src="assets/shots/intel-timeline-before-1440.webp" width="1440" height="900" alt="Panel a, as graded: a pale blue page titled Intel's sustainability goals, mapped as a responsive timeline, with an empty card graphic." loading="lazy" />
+            </picture>
+            <picture class="plate-b">
+              <source media="(max-width: 899px)" srcset="assets/shots/intel-timeline-after-390.webp" width="390" height="844" />
+              <img src="assets/shots/intel-timeline-after-1440.webp" width="1440" height="900" alt="Panel b, revised: an amber page headlined Intel set five climate deadlines. One is nearly met., above a to-scale timeline from 2006 to 2050." loading="lazy" />
+            </picture>
+            <span class="divider" aria-hidden="true"></span>
+            <span class="panel-label panel-label--a" aria-hidden="true">a</span>
+            <span class="panel-label panel-label--b" aria-hidden="true">b</span>
+          </div>
+          <div class="plate-tools">
+            <label class="compare">
+              <span class="visually-hidden">Compare panel a and panel b for figure 1</span>
+              <input type="range" min="0" max="100" value="50" data-compare />
+            </label>
+            <span class="scalebar" aria-hidden="true">1440 px</span>
+          </div>
+        </div>
+        <div class="fig-caption">
+          <h2 id="fig-1-title"><span class="fig-num">Fig. 1</span> Intel's climate goals, checked</h2>
+          <ol class="beats">
+            <li data-beat><b>Baseline.</b> A generic timeline of "focus areas" with no numbers in it.</li>
+            <li data-beat><b>Intervention.</b> Rebuilt as a data story: Intel's five public deadlines set against Intel's own 2021–2025 figures, with one plain status per goal.</li>
+            <li data-beat><b>Result.</b> Every figure traces to page 9 of Intel's 2025–26 report. Charts are drawn from tables that stay readable without JavaScript. Codex reviewed it, and I applied its 4 fixes.</li>
+          </ol>
+          <p class="fig-links">
+            <a href="https://srao189.github.io/intel-sustainability-timeline/">Live site</a>
+            <a href="https://github.com/SRao189/intel-sustainability-timeline">Source</a>
+            <a href="https://github.com/SRao189/intel-sustainability-timeline/tree/submitted-original">Panel a, as graded</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="fig" id="fig-2" aria-labelledby="fig-2-title">
+        <div class="fig-stage">
+          <div class="plate" data-plate>
+            <picture class="plate-a">
+              <source media="(max-width: 899px)" srcset="assets/shots/intel-localization-before-390.webp" width="390" height="844" />
+              <img src="assets/shots/intel-localization-before-1440.webp" width="1440" height="900" alt="Panel a, as graded: the same pale blue timeline page with an Arabic toggle that ran Google Translate." loading="lazy" />
+            </picture>
+            <picture class="plate-b">
+              <source media="(max-width: 899px)" srcset="assets/shots/intel-localization-after-390.webp" width="390" height="844" />
+              <img src="assets/shots/intel-localization-after-1440.webp" width="1440" height="900" alt="Panel b, revised: the amber data story with a link to a hand-written Arabic edition." loading="lazy" />
+            </picture>
+            <span class="divider" aria-hidden="true"></span>
+            <span class="panel-label panel-label--a" aria-hidden="true">a</span>
+            <span class="panel-label panel-label--b" aria-hidden="true">b</span>
+          </div>
+          <div class="plate-tools">
+            <label class="compare">
+              <span class="visually-hidden">Compare panel a and panel b for figure 2</span>
+              <input type="range" min="0" max="100" value="50" data-compare />
+            </label>
+            <span class="scalebar" aria-hidden="true">1440 px</span>
+          </div>
+        </div>
+        <div class="fig-caption">
+          <h2 id="fig-2-title"><span class="fig-num">Fig. 2</span> The same story, in Arabic</h2>
+          <ol class="beats">
+            <li data-beat><b>Baseline.</b> "Localization" meant a Google Translate widget, plus a newsletter form that sent nowhere.</li>
+            <li data-beat><b>Intervention.</b> A hand-written Modern Standard Arabic edition. The timeline and charts are mirrored to read right to left, without breaking how numbers and percent signs display.</li>
+            <li data-beat><b>Result.</b> Codex checked all 133 numbers against the English page and suggested 7 wording fixes, all applied. Not yet reviewed by a native speaker, and the page says so.</li>
+          </ol>
+          <p class="fig-links">
+            <a href="https://srao189.github.io/03-prj-intel-localization/ar/" hreflang="ar">Arabic edition</a>
+            <a href="https://github.com/SRao189/03-prj-intel-localization">Source</a>
+            <a href="https://github.com/SRao189/03-prj-intel-localization/tree/submitted-original">Panel a, as graded</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="fig" id="fig-3" aria-labelledby="fig-3-title">
+        <div class="fig-stage">
+          <div class="plate" data-plate>
+            <picture class="plate-a">
+              <source media="(max-width: 899px)" srcset="assets/shots/frans-flowers-before-390.webp" width="390" height="844" />
+              <img src="assets/shots/frans-flowers-before-1440.webp" width="1440" height="900" alt="Panel a, as graded: a centered cream page with Fran's photo cropped to an oval." loading="lazy" />
+            </picture>
+            <picture class="plate-b">
+              <source media="(max-width: 899px)" srcset="assets/shots/frans-flowers-after-390.webp" width="390" height="844" />
+              <img src="assets/shots/frans-flowers-after-1440.webp" width="1440" height="900" alt="Panel b, revised: a hot-pink page headlined Flowers for the Mission, since 1995, with Fran framed in a teal arched doorway." loading="lazy" />
+            </picture>
+            <span class="divider" aria-hidden="true"></span>
+            <span class="panel-label panel-label--a" aria-hidden="true">a</span>
+            <span class="panel-label panel-label--b" aria-hidden="true">b</span>
+          </div>
+          <div class="plate-tools">
+            <label class="compare">
+              <span class="visually-hidden">Compare panel a and panel b for figure 3</span>
+              <input type="range" min="0" max="100" value="50" data-compare />
+            </label>
+            <span class="scalebar" aria-hidden="true">1440 px</span>
+          </div>
+        </div>
+        <div class="fig-caption">
+          <h2 id="fig-3-title"><span class="fig-num">Fig. 3</span> Fran's Flowers</h2>
+          <ol class="beats">
+            <li data-beat><b>Baseline.</b> A centered template for a fictional Mission District florist: an oval photo and soft default colors.</li>
+            <li data-beat><b>Intervention.</b> An identity taken from the shop's own photo: the pink stucco wall, the teal door, the marigold pots. Specials hang as price tags in a shop window.</li>
+            <li data-beat><b>Result.</b> Codex caught four details the brief never stated, and I removed them. The class was "No AI", so the graded version stays untouched at its tag.</li>
+          </ol>
+          <p class="fig-links">
+            <a href="https://srao189.github.io/03-LU-site-redesign/">Live site</a>
+            <a href="https://github.com/SRao189/03-LU-site-redesign">Source</a>
+            <a href="https://github.com/SRao189/03-LU-site-redesign/tree/submitted-original">Panel a, as graded</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="fig" id="fig-4" aria-labelledby="fig-4-title">
+        <div class="fig-stage">
+          <div class="plate" data-plate>
+            <picture class="plate-a">
+              <source media="(max-width: 899px)" srcset="assets/shots/summit-checkin-before-390.webp" width="390" height="844" />
+              <img src="assets/shots/summit-checkin-before-1440.webp" width="1440" height="900" alt="Panel a, as graded: a dark hero with a glowing orb and a count of 23 of 50, with the check-in form below the fold." loading="lazy" />
+            </picture>
+            <picture class="plate-b">
+              <source media="(max-width: 899px)" srcset="assets/shots/summit-checkin-after-390.webp" width="390" height="844" />
+              <img src="assets/shots/summit-checkin-after-1440.webp" width="1440" height="900" alt="Panel b, revised: a blue check-in column beside a board of 50 seats, 23 filled in three team colors, with team standings." loading="lazy" />
+            </picture>
+            <span class="divider" aria-hidden="true"></span>
+            <span class="panel-label panel-label--a" aria-hidden="true">a</span>
+            <span class="panel-label panel-label--b" aria-hidden="true">b</span>
+          </div>
+          <div class="plate-tools">
+            <label class="compare">
+              <span class="visually-hidden">Compare panel a and panel b for figure 4</span>
+              <input type="range" min="0" max="100" value="50" data-compare />
+            </label>
+            <span class="scalebar" aria-hidden="true">1440 px</span>
+          </div>
+        </div>
+        <div class="fig-caption">
+          <h2 id="fig-4-title"><span class="fig-num">Fig. 4</span> A check-in desk for a summit</h2>
+          <ol class="beats">
+            <li data-beat><b>Baseline.</b> A glowing orb and identical cards. The form sat below the fold, and the scores were hard to read from across a table.</li>
+            <li data-beat><b>Intervention.</b> A registration-desk scoreboard: 50 seats fill in team colors in arrival order. One-tap team tiles, plus staff tools for undoing a mistake.</li>
+            <li data-beat><b>Result.</b> The original logic and its self-test were kept, and a scripted run of 23 check-ins passed at phone and desktop widths. An independent review is still pending.</li>
+          </ol>
+          <p class="fig-links">
+            <a href="https://srao189.github.io/intel-summit-checkin/">Live site</a>
+            <a href="https://github.com/SRao189/intel-summit-checkin">Source</a>
+            <a href="https://github.com/SRao189/intel-summit-checkin/tree/submitted-original">Panel a, as graded</a>
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <section class="method" id="method" aria-labelledby="method-title">
+      <h2 id="method-title">Method</h2>
+      <p class="method-lead">Each revision ran the same protocol, in this order.</p>
+      <ol class="protocol">
+        <li><b>Freeze the baseline.</b> The graded version is tagged in git before anything changes, so panel a is always recoverable.</li>
+        <li><b>Write the brief.</b> Who uses the page, what they need from it, and which facts must stay true.</li>
+        <li><b>Replace filler with sources.</b> Numbers come from the primary document, cited down to the page.</li>
+        <li><b>Measure.</b> Rendered and checked in a real browser at 320, 390 and 1440 px, with reduced motion on and off, and no console errors.</li>
+        <li><b>Review independently.</b> A second model audits the work read-only, and I apply its fixes or record why not.</li>
+      </ol>
+      <p class="method-note">
+        These revisions were built with AI assistance (Claude Code, with Codex as reviewer). The judgment calls, the sources and what shipped are mine to answer for.
+      </p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Sahar Rao · Neuroscience, UC Riverside · <a href="https://github.com/SRao189">github.com/SRao189</a></p>
+  </footer>
+</body>
+</html>

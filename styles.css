@@ -1,0 +1,525 @@
+@font-face {
+  font-family: "Schibsted Grotesk";
+  src: url("assets/fonts/schibsted-grotesk.woff2") format("woff2");
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+:root {
+  /* A journal figure plate: white ground, black ink, one stain color (DAPI violet). */
+  --ground: oklch(0.995 0 0);
+  --ink: oklch(0.17 0.012 275);
+  --ink-soft: oklch(0.43 0.015 275);
+  --rule: oklch(0.88 0.008 275);
+  --stain: oklch(0.47 0.21 275);
+  --stain-deep: oklch(0.32 0.15 275);
+  --on-stain: oklch(0.98 0.01 275);
+  --focus: oklch(0.86 0.17 135);
+
+  --page: 1320px;
+  --pad: clamp(1rem, 4vw, 3rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --z-skip: 10;
+
+  accent-color: var(--stain);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: "Schibsted Grotesk", "Segoe UI", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+::selection {
+  background: var(--stain);
+  color: var(--on-stain);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--stain);
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 7px var(--focus);
+  border-radius: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--pad);
+  top: -4rem;
+  z-index: var(--z-skip);
+  padding: 0.6rem 1rem;
+  background: var(--ink);
+  color: var(--ground);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Masthead */
+
+.mast {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem 2rem;
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 1.25rem var(--pad);
+  border-bottom: 1px solid var(--rule);
+}
+
+.mast-name {
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.mast nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Hero */
+
+.hero {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: clamp(3rem, 9vw, 7rem) var(--pad) clamp(2.5rem, 6vw, 4.5rem);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.8rem, 8.4vw, 6rem);
+  font-weight: 850;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.hero-word {
+  display: block;
+}
+
+.hero-word:nth-child(2) {
+  color: var(--stain);
+}
+
+.hero-lead {
+  max-width: 56ch;
+  margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+  font-size: clamp(1.125rem, 1.6vw, 1.3125rem);
+  text-wrap: pretty;
+}
+
+.key-a,
+.key-b {
+  display: inline-grid;
+  place-items: center;
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 3px;
+  font-size: 0.85em;
+  line-height: 1;
+}
+
+.key-a {
+  background: var(--ink);
+  color: var(--ground);
+}
+
+.key-b {
+  background: var(--stain);
+  color: var(--on-stain);
+}
+
+.fig-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--rule);
+  list-style: none;
+}
+
+.fig-index a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.fig-index span {
+  color: var(--stain);
+  font-weight: 800;
+  margin-inline-end: 0.35rem;
+}
+
+/* Figures */
+
+.fig {
+  display: grid;
+  grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+  max-width: var(--page);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4rem) var(--pad);
+  border-top: 1px solid var(--rule);
+}
+
+.plate {
+  --split: 50%;
+  position: relative;
+  aspect-ratio: 1440 / 900;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: oklch(0.96 0 0);
+  box-shadow: 0 30px 60px -40px oklch(0.17 0.012 275 / 0.45);
+}
+
+.plate picture,
+.plate picture img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+}
+
+/* Panel b covers panel a to the right of the divider. */
+.plate-b {
+  clip-path: inset(0 0 0 var(--split));
+}
+
+.divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--split);
+  width: 3px;
+  margin-left: -1.5px;
+  background: var(--stain);
+}
+
+.panel-label {
+  position: absolute;
+  top: 0.75rem;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 3px;
+  font-size: 1.25rem;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.panel-label--a {
+  left: 0.75rem;
+  background: var(--ink);
+  color: var(--ground);
+}
+
+.panel-label--b {
+  right: 0.75rem;
+  background: var(--stain);
+  color: var(--on-stain);
+}
+
+.plate-tools {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 0.85rem;
+}
+
+.compare {
+  flex: 1;
+}
+
+.compare input {
+  width: 100%;
+  margin: 0;
+  cursor: ew-resize;
+}
+
+/* A scale bar, as on a micrograph: the screenshots are 1440 px wide. */
+.scalebar {
+  display: grid;
+  justify-items: end;
+  gap: 0.2rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.scalebar::before {
+  content: "";
+  width: 4.5rem;
+  height: 4px;
+  background: var(--ink);
+}
+
+.fig-caption h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.6vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.fig-num {
+  display: block;
+  color: var(--stain);
+  margin-bottom: 0.35rem;
+}
+
+.beats {
+  display: grid;
+  gap: 0.9rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.beats li {
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--rule);
+  text-wrap: pretty;
+  transition: color 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
+}
+
+.beats b {
+  display: block;
+  font-weight: 800;
+}
+
+/* While scroll drives a figure, the beat being shown leads; the others stay readable. */
+.is-scrubbing .beats li {
+  color: var(--ink-soft);
+}
+
+.is-scrubbing .beats li.is-active {
+  color: var(--ink);
+  border-top-color: var(--stain);
+}
+
+.fig-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  margin: 1.5rem 0 0;
+  font-weight: 700;
+}
+
+/* Method: the one stained field on the page. */
+
+.method {
+  background: var(--stain);
+  color: var(--on-stain);
+  padding: clamp(3.5rem, 8vw, 6rem) max(var(--pad), calc((100% - var(--page)) / 2 + var(--pad)));
+}
+
+.method h2 {
+  margin: 0;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 850;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.method-lead {
+  margin: 1rem 0 0;
+  font-size: 1.1875rem;
+}
+
+.protocol {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 1.5rem clamp(1.5rem, 3vw, 2.5rem);
+  margin: clamp(2rem, 5vw, 3rem) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.protocol li {
+  counter-increment: step;
+  padding-top: 1rem;
+  border-top: 2px solid oklch(0.98 0.01 275 / 0.5);
+}
+
+.protocol li::before {
+  content: counter(step);
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 850;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.protocol b {
+  display: block;
+  font-size: 1.125rem;
+}
+
+.method-note {
+  max-width: 62ch;
+  margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid oklch(0.98 0.01 275 / 0.35);
+}
+
+.method a:hover {
+  color: inherit;
+}
+
+.method :focus-visible {
+  outline-color: var(--on-stain);
+}
+
+.foot {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 2rem var(--pad) 3rem;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+.foot p {
+  margin: 0;
+}
+
+/* Phones and tablets: no pinning or wipe. Panels a and b sit side by side, as phone captures. */
+@media (max-width: 899px) {
+  .fig {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .plate {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    aspect-ratio: auto;
+    overflow: visible;
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .plate picture,
+  .plate picture img {
+    position: static;
+    height: auto;
+    aspect-ratio: 390 / 844;
+  }
+
+  .plate picture img {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+  }
+
+  .plate-b {
+    clip-path: none;
+  }
+
+  .divider,
+  .compare,
+  .scalebar {
+    display: none;
+  }
+
+  .panel-label {
+    top: 0.5rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: 1rem;
+  }
+
+  .panel-label--a {
+    left: 0.5rem;
+  }
+
+  .panel-label--b {
+    left: calc(50% + 0.375rem + 0.5rem);
+    right: auto;
+  }
+
+  .plate-tools {
+    margin-top: 0;
+  }
+}
+
+/* Motion: the hero words wipe in like a panel reveal. Figures scrub with scroll (main.js). */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-word {
+    animation: wipe 0.9s var(--ease-out) backwards;
+  }
+
+  .hero-word:nth-child(2) { animation-delay: 0.12s; }
+  .hero-word:nth-child(3) { animation-delay: 0.24s; }
+
+  .hero-lead,
+  .fig-index {
+    animation: fade 0.8s 0.45s var(--ease-out) both;
+  }
+}
+
+@keyframes wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+    transform: translateX(-0.15em);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
