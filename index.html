@@ -4,21 +4,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; frame-src 'none'; upgrade-insecure-requests" />
-  <meta name="description" content="Sahar Rao, neuroscience student at UC Riverside: four rebuilt websites shown as before-and-after figures, each with its graded original preserved." />
-  <meta name="theme-color" content="#ffffff" />
-  <title>Sahar Rao · Web work, before and after</title>
+  <meta name="description" content="UNFINISHED FUTURES — Sahar Rao's experimental creative studio and web portfolio at UC Riverside. Make. Break. Remake. Four rebuilt websites shown as before-and-after figures with every graded original preserved." />
+  <meta name="theme-color" content="#0b0c10" />
+  <title>UNFINISHED FUTURES · Sahar Rao — Make. Break. Remake.</title>
   <link rel="preload" href="assets/fonts/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="styles.css" />
   <script src="assets/vendor/gsap.min.js" defer></script>
   <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
   <script src="assets/vendor/lenis.min.js" defer></script>
+  <script type="module" src="sculpture.js"></script>
   <script src="main.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#figures">Skip to the work</a>
 
   <header class="mast">
-    <a class="mast-name" href="./">Sahar Rao</a>
+    <a class="mast-name" href="./">
+      <span class="mast-brand">UNFINISHED FUTURES</span>
+      <span class="mast-sep" aria-hidden="true">/</span>
+      <span class="mast-author">Sahar Rao</span>
+    </a>
     <nav aria-label="Primary">
       <a href="#figures">Work</a>
       <a href="#method">Method</a>
@@ -27,23 +32,158 @@
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="hero-title">
-      <h1 id="hero-title">
-        <span class="hero-word">Baseline.</span>
-        <span class="hero-word">Intervention.</span>
-        <span class="hero-word">Result.</span>
-      </h1>
-      <p class="hero-lead">
-        I'm Sahar Rao, a neuroscience student at UC Riverside. I rebuilt four of my graded
-        web-design projects and kept every original, so each figure below is a before and after
-        you can check for yourself: panel <b class="key-a">a</b> as graded, panel <b class="key-b">b</b> revised.
-      </p>
-      <ol class="fig-index" aria-label="Figures">
-        <li><a href="#fig-1"><span>Fig. 1</span> Intel's climate goals, checked</a></li>
-        <li><a href="#fig-2"><span>Fig. 2</span> The same story, in Arabic</a></li>
-        <li><a href="#fig-3"><span>Fig. 3</span> Fran's Flowers</a></li>
-        <li><a href="#fig-4"><span>Fig. 4</span> A check-in desk for a summit</a></li>
-      </ol>
+    <section class="hero-chamber" id="top" aria-labelledby="hero-title" data-chamber>
+      <div class="chamber-shell">
+        <div class="chamber-telemetry" aria-hidden="true">
+          <span class="telemetry-id">STUDIO SPECIMEN // 01 — BREAK THE FRAME</span>
+          <span class="telemetry-domains" data-domains>
+            <span data-domain="design">design</span>
+            <i>/</i>
+            <span data-domain="systems">systems</span>
+            <i>/</i>
+            <span data-domain="motion">motion</span>
+            <i>/</i>
+            <span data-domain="research">research</span>
+          </span>
+          <span class="telemetry-phase" data-phase-label>01 / ARRIVAL: SPECIMEN</span>
+        </div>
+
+        <div class="chamber-grid">
+          <div class="hero-copy">
+            <p class="studio-signature">UNFINISHED FUTURES · EXPERIMENTAL CREATIVE STUDIO</p>
+            <h1 id="hero-title">
+              <span class="hero-word">MAKE.</span>
+              <span class="hero-word">BREAK.</span>
+              <span class="hero-word">REMAKE.</span>
+            </h1>
+            <p class="hero-thesis">
+              <span class="thesis-pill">Baseline.</span>
+              <span class="thesis-pill thesis-pill--accent">Intervention.</span>
+              <span class="thesis-pill">Result.</span>
+            </p>
+            <p class="hero-lead">
+              I'm Sahar Rao, a neuroscience student at UC Riverside. A prototype isn't a finished thing;
+              it's a record of what broke and what was tried next. Each piece here shows the baseline, the
+              intervention, and the result—with the failures kept in view: panel <b class="key-a">a</b> as
+              graded, panel <b class="key-b">b</b> revised.
+            </p>
+
+            <div class="chamber-controls" aria-label="Opening sequence controls">
+              <div class="shot-pills" role="group" aria-label="Storyboard phases">
+                <button type="button" class="shot-btn is-active" data-shot-btn="0" aria-pressed="true">01 Specimen</button>
+                <button type="button" class="shot-btn" data-shot-btn="30" aria-pressed="false">02 Tension</button>
+                <button type="button" class="shot-btn" data-shot-btn="52" aria-pressed="false">03 Fracture</button>
+                <button type="button" class="shot-btn" data-shot-btn="75" aria-pressed="false">04 Recompose</button>
+                <button type="button" class="shot-btn" data-shot-btn="100" aria-pressed="false">05 Framework</button>
+              </div>
+              <div class="scrub-row">
+                <label class="fracture-scrub">
+                  <span class="scrub-label">Fracture to Framework</span>
+                  <input type="range" min="0" max="100" value="0" data-fracture-scrub aria-label="Scrub opening sculpture from intact specimen (0%) through fracture to modular framework (100%)" />
+                  <output class="scrub-output" data-fracture-out aria-live="polite">0%</output>
+                </label>
+                <a class="chamber-skip" href="#figures">Jump to figures ↓</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="sculpture-stage" data-sculpture-stage aria-hidden="true">
+            <svg class="sculpture-fallback" viewBox="0 0 600 600" role="presentation" focusable="false">
+              <defs>
+                <radialGradient id="void-glow" cx="50%" cy="48%" r="48%">
+                  <stop offset="0%" stop-color="#5b3df5" stop-opacity="0.34" />
+                  <stop offset="58%" stop-color="#141826" stop-opacity="0.14" />
+                  <stop offset="100%" stop-color="#0b0c10" stop-opacity="0" />
+                </radialGradient>
+                <linearGradient id="smoked-glass" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#2c3146" stop-opacity="0.88" />
+                  <stop offset="50%" stop-color="#151824" stop-opacity="0.78" />
+                  <stop offset="100%" stop-color="#0e1018" stop-opacity="0.92" />
+                </linearGradient>
+                <linearGradient id="gunmetal" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#12141d" />
+                  <stop offset="55%" stop-color="#282d3e" />
+                  <stop offset="100%" stop-color="#48506b" />
+                </linearGradient>
+                <linearGradient id="seam-acid" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#d4ff00" />
+                  <stop offset="60%" stop-color="#5b3df5" />
+                  <stop offset="100%" stop-color="#ff5a36" />
+                </linearGradient>
+              </defs>
+              <circle cx="300" cy="295" r="245" fill="url(#void-glow)" />
+              <circle cx="300" cy="295" r="192" fill="none" stroke="#262a3a" stroke-width="1" stroke-dasharray="4 6" />
+              <g class="svg-core">
+                <polygon points="300,192 388,295 300,398 212,295" fill="none" stroke="url(#seam-acid)" stroke-width="2" />
+                <polygon points="300,224 362,295 300,366 238,295" fill="#5b3df5" fill-opacity="0.24" stroke="#d4ff00" stroke-width="1.5" />
+              </g>
+              <g class="svg-shard svg-shard--nw">
+                <polygon points="300,126 196,178 164,295 294,289" fill="url(#smoked-glass)" stroke="url(#seam-acid)" stroke-width="1.6" />
+              </g>
+              <g class="svg-shard svg-shard--ne">
+                <polygon points="300,126 404,178 436,295 306,289" fill="url(#gunmetal)" stroke="url(#seam-acid)" stroke-width="1.6" />
+              </g>
+              <g class="svg-shard svg-shard--sw">
+                <polygon points="164,295 202,414 300,464 294,301" fill="url(#gunmetal)" stroke="url(#seam-acid)" stroke-width="1.6" />
+              </g>
+              <g class="svg-shard svg-shard--se">
+                <polygon points="436,295 398,414 300,464 306,301" fill="url(#smoked-glass)" stroke="url(#seam-acid)" stroke-width="1.6" />
+              </g>
+            </svg>
+            <canvas class="sculpture-canvas"></canvas>
+
+            <div class="stage-annotations">
+              <span class="annot annot--tl" data-annot="tl">MAT // SMOKED GLASS · MATTE GUNMETAL</span>
+              <span class="annot annot--tr" data-annot="tr">STRESS // NORMAL-VECTOR CLEAVAGE SEAMS</span>
+              <span class="annot annot--bl" data-annot="bl">FRAGMENTS // 12 TECTONIC FACETS</span>
+              <span class="annot annot--br" data-annot="br">GRID // 04 CASE STUDY PORTALS</span>
+            </div>
+          </div>
+        </div>
+
+        <ol class="fig-index portal-grid" aria-label="Figures" data-portal-grid>
+          <li class="portal-card" data-portal="0">
+            <a href="#fig-1">
+              <span class="portal-head">
+                <span class="portal-num">Fig. 1</span>
+                <span class="portal-tag">systems / data</span>
+              </span>
+              <strong class="portal-title">Intel's climate goals, checked</strong>
+              <span class="portal-meta">2021–2025 reported performance · 99 of 100 dies lit</span>
+            </a>
+          </li>
+          <li class="portal-card" data-portal="1">
+            <a href="#fig-2">
+              <span class="portal-head">
+                <span class="portal-num">Fig. 2</span>
+                <span class="portal-tag">research / bidi</span>
+              </span>
+              <strong class="portal-title">The same story, in Arabic</strong>
+              <span class="portal-meta">Right-to-left edition · matching chart values</span>
+            </a>
+          </li>
+          <li class="portal-card" data-portal="2">
+            <a href="#fig-3">
+              <span class="portal-head">
+                <span class="portal-num">Fig. 3</span>
+                <span class="portal-tag">design / motion</span>
+              </span>
+              <strong class="portal-title">Fran's Flowers</strong>
+              <span class="portal-meta">Valencia St. storefront arch reveal &amp; window tags</span>
+            </a>
+          </li>
+          <li class="portal-card" data-portal="3">
+            <a href="#fig-4">
+              <span class="portal-head">
+                <span class="portal-num">Fig. 4</span>
+                <span class="portal-tag">interface / tool</span>
+              </span>
+              <strong class="portal-title">A check-in desk for a summit</strong>
+              <span class="portal-meta">50-seat live scoreboard · arrival-order ripple</span>
+            </a>
+          </li>
+        </ol>
+      </div>
     </section>
 
     <div id="figures">
@@ -75,7 +215,7 @@
           <ol class="beats">
             <li data-beat><b>Baseline.</b> A generic timeline of "focus areas" with no quantified performance data.</li>
             <li data-beat><b>Intervention.</b> Rebuilt as a data story: Intel's five public deadlines set against Intel's own 2021–2025 figures, with one plain status per goal.</li>
-            <li data-beat><b>Result.</b> Every yearly performance figure comes from page 9 of Intel's 2025–26 report, and the one computed number is shown with its formula. Charts are drawn from tables that stay readable without JavaScript. A second model (Codex) reviewed the work; the fixes are in <a href="https://github.com/SRao189/intel-sustainability-timeline/commit/5a03892">5a03892</a>.</li>
+            <li data-beat><b>Result.</b> Every yearly performance figure comes from page 9 of Intel's 2025–26 report, and the one computed number is shown with its formula. Charts are drawn from tables that stay readable without JavaScript. Yearly figures are sourced to Intel's published performance table; commit <a href="https://github.com/SRao189/intel-sustainability-timeline/commit/5a03892">5a03892</a> records checks of all 20 values and the timeline scale.</li>
           </ol>
           <p class="fig-links">
             <a href="https://srao189.github.io/intel-sustainability-timeline/">Live site</a>
@@ -113,7 +253,7 @@
           <ol class="beats">
             <li data-beat><b>Baseline.</b> "Localization" meant a Google Translate widget, plus a newsletter form that sent nowhere.</li>
             <li data-beat><b>Intervention.</b> A hand-written Modern Standard Arabic edition. The timeline and charts are mirrored to read right to left, without breaking how numbers and percent signs display.</li>
-            <li data-beat><b>Result.</b> The Arabic and English pages carry the same 133 numbers in the same order, a check a second model (Codex) repeated independently. Not yet reviewed by a native speaker, and the page says so.</li>
+            <li data-beat><b>Result.</b> The English and Arabic editions preserve the same 20 chart values. Native-speaker review is pending.</li>
           </ol>
           <p class="fig-links">
             <a href="https://srao189.github.io/03-prj-intel-localization/ar/" hreflang="ar">Arabic edition</a>
@@ -151,7 +291,7 @@
           <ol class="beats">
             <li data-beat><b>Baseline.</b> A centered template for a fictional Mission District florist: an oval photo and soft default colors.</li>
             <li data-beat><b>Intervention.</b> An identity taken from the shop's own photo: the pink stucco wall, the teal door, the marigold pots. Specials hang as price tags in a shop window.</li>
-            <li data-beat><b>Result.</b> A review by a second model (Codex) caught details the brief never stated; they were removed in <a href="https://github.com/SRao189/03-LU-site-redesign/commit/0cfc120">0cfc120</a>. The class was "No AI", so the graded version stays untouched at its tag.</li>
+            <li data-beat><b>Result.</b> Commit <a href="https://github.com/SRao189/03-LU-site-redesign/commit/0cfc120">0cfc120</a> removes unsupported wording, corrects the sunflower image description, and limits smooth scrolling to visitors without a reduced-motion preference. The graded original remains preserved at its tag.</li>
           </ol>
           <p class="fig-links">
             <a href="https://srao189.github.io/03-LU-site-redesign/">Live site</a>
@@ -208,16 +348,16 @@
         <li><b>Write the brief.</b> Who uses the page, what they need from it, and which facts must stay true.</li>
         <li><b>Replace filler with sources.</b> Numbers come from the primary document, cited down to the page.</li>
         <li><b>Measure.</b> Rendered and checked in a real browser at 320, 390 and 1440 px, with reduced motion on and off, and no console errors.</li>
-        <li><b>Review independently.</b> A second model audits the work read-only, and I apply its fixes or record why not.</li>
+        <li><b>Check against the brief.</b> Review sources, wording, accessibility and behavior; record corrections and unresolved limitations.</li>
       </ol>
       <p class="method-note">
-        These revisions were built with AI assistance (Claude Code, with Codex as reviewer). The judgment calls, the sources and what shipped are mine to answer for.
+        The original submissions are preserved. These later revisions document the design decisions, sources, corrections and remaining limitations. Sahar Rao is responsible for what ships.
       </p>
     </section>
   </main>
 
   <footer class="foot">
-    <p>Sahar Rao · Neuroscience, UC Riverside · <a href="https://github.com/SRao189">github.com/SRao189</a></p>
+    <p>UNFINISHED FUTURES · Sahar Rao · Neuroscience, UC Riverside · <a href="https://github.com/SRao189">github.com/SRao189</a></p>
   </footer>
 </body>
 </html>
