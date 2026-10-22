@@ -52,7 +52,7 @@
           <div class="plate" data-plate>
             <picture class="plate-a">
               <source media="(max-width: 899px)" srcset="assets/shots/intel-timeline-before-390.webp" width="390" height="844" />
-              <img src="assets/shots/intel-timeline-before-1440.webp" width="1440" height="900" alt="Panel a, as graded: a pale blue page titled Intel's sustainability goals, mapped as a responsive timeline, with an empty card graphic." loading="lazy" />
+              <img src="assets/shots/intel-timeline-before-1440.webp" width="1440" height="900" alt="Panel a, as graded: a pale blue page titled Intel's sustainability goals, mapped as a responsive timeline, beside a card listing four focus areas: energy, water, waste and climate." loading="lazy" />
             </picture>
             <picture class="plate-b">
               <source media="(max-width: 899px)" srcset="assets/shots/intel-timeline-after-390.webp" width="390" height="844" />
@@ -73,9 +73,9 @@
         <div class="fig-caption">
           <h2 id="fig-1-title"><span class="fig-num">Fig. 1</span> Intel's climate goals, checked</h2>
           <ol class="beats">
-            <li data-beat><b>Baseline.</b> A generic timeline of "focus areas" with no numbers in it.</li>
+            <li data-beat><b>Baseline.</b> A generic timeline of "focus areas" with no quantified performance data.</li>
             <li data-beat><b>Intervention.</b> Rebuilt as a data story: Intel's five public deadlines set against Intel's own 2021–2025 figures, with one plain status per goal.</li>
-            <li data-beat><b>Result.</b> Every figure traces to page 9 of Intel's 2025–26 report. Charts are drawn from tables that stay readable without JavaScript. Codex reviewed it, and I applied its 4 fixes.</li>
+            <li data-beat><b>Result.</b> Every yearly performance figure comes from page 9 of Intel's 2025–26 report, and the one computed number is shown with its formula. Charts are drawn from tables that stay readable without JavaScript. A second model (Codex) reviewed the work; the fixes are in <a href="https://github.com/SRao189/intel-sustainability-timeline/commit/5a03892">5a03892</a>.</li>
           </ol>
           <p class="fig-links">
             <a href="https://srao189.github.io/intel-sustainability-timeline/">Live site</a>
@@ -113,7 +113,7 @@
           <ol class="beats">
             <li data-beat><b>Baseline.</b> "Localization" meant a Google Translate widget, plus a newsletter form that sent nowhere.</li>
             <li data-beat><b>Intervention.</b> A hand-written Modern Standard Arabic edition. The timeline and charts are mirrored to read right to left, without breaking how numbers and percent signs display.</li>
-            <li data-beat><b>Result.</b> Codex checked all 133 numbers against the English page and suggested 7 wording fixes, all applied. Not yet reviewed by a native speaker, and the page says so.</li>
+            <li data-beat><b>Result.</b> The Arabic and English pages carry the same 133 numbers in the same order, a check a second model (Codex) repeated independently. Not yet reviewed by a native speaker, and the page says so.</li>
           </ol>
           <p class="fig-links">
             <a href="https://srao189.github.io/03-prj-intel-localization/ar/" hreflang="ar">Arabic edition</a>
@@ -151,7 +151,7 @@
           <ol class="beats">
             <li data-beat><b>Baseline.</b> A centered template for a fictional Mission District florist: an oval photo and soft default colors.</li>
             <li data-beat><b>Intervention.</b> An identity taken from the shop's own photo: the pink stucco wall, the teal door, the marigold pots. Specials hang as price tags in a shop window.</li>
-            <li data-beat><b>Result.</b> Codex caught four details the brief never stated, and I removed them. The class was "No AI", so the graded version stays untouched at its tag.</li>
+            <li data-beat><b>Result.</b> A review by a second model (Codex) caught details the brief never stated; they were removed in <a href="https://github.com/SRao189/03-LU-site-redesign/commit/0cfc120">0cfc120</a>. The class was "No AI", so the graded version stays untouched at its tag.</li>
           </ol>
           <p class="fig-links">
             <a href="https://srao189.github.io/03-LU-site-redesign/">Live site</a>
@@ -166,11 +166,11 @@
           <div class="plate" data-plate>
             <picture class="plate-a">
               <source media="(max-width: 899px)" srcset="assets/shots/summit-checkin-before-390.webp" width="390" height="844" />
-              <img src="assets/shots/summit-checkin-before-1440.webp" width="1440" height="900" alt="Panel a, as graded: a dark hero with a glowing orb and a count of 23 of 50, with the check-in form below the fold." loading="lazy" />
+              <img src="assets/shots/summit-checkin-before-1440.webp" width="1440" height="900" alt="Panel a, as graded: a dark hero with a glowing orb and a count of 23 of 50; on a phone the check-in form starts below the fold." loading="lazy" />
             </picture>
             <picture class="plate-b">
               <source media="(max-width: 899px)" srcset="assets/shots/summit-checkin-after-390.webp" width="390" height="844" />
-              <img src="assets/shots/summit-checkin-after-1440.webp" width="1440" height="900" alt="Panel b, revised: a blue check-in column beside a board of 50 seats, 23 filled in three team colors, with team standings." loading="lazy" />
+              <img src="assets/shots/summit-checkin-after-1440.webp" width="1440" height="900" alt="Panel b, revised: a blue check-in column with large team tiles; on wide screens it sits beside a board of 50 seats, 23 filled in three team colors." loading="lazy" />
             </picture>
             <span class="divider" aria-hidden="true"></span>
             <span class="panel-label panel-label--a" aria-hidden="true">a</span>
@@ -187,9 +187,9 @@
         <div class="fig-caption">
           <h2 id="fig-4-title"><span class="fig-num">Fig. 4</span> A check-in desk for a summit</h2>
           <ol class="beats">
-            <li data-beat><b>Baseline.</b> A glowing orb and identical cards. The form sat below the fold, and the scores were hard to read from across a table.</li>
+            <li data-beat><b>Baseline.</b> A glowing orb and identical cards. On a phone the form sat below the fold, and the scores were hard to read from across a table.</li>
             <li data-beat><b>Intervention.</b> A registration-desk scoreboard: 50 seats fill in team colors in arrival order. One-tap team tiles, plus staff tools for undoing a mistake.</li>
-            <li data-beat><b>Result.</b> The original logic and its self-test were kept, and a scripted run of 23 check-ins passed at phone and desktop widths. An independent review is still pending.</li>
+            <li data-beat><b>Result.</b> The original logic and its self-test were kept, and a scripted browser run of 23 check-ins, an undo and a reload passed at phone and desktop widths. An independent review is still pending.</li>
           </ol>
           <p class="fig-links">
             <a href="https://srao189.github.io/intel-summit-checkin/">Live site</a>
@@ -202,7 +202,7 @@
 
     <section class="method" id="method" aria-labelledby="method-title">
       <h2 id="method-title">Method</h2>
-      <p class="method-lead">Each revision ran the same protocol, in this order.</p>
+      <p class="method-lead">Every revision follows this protocol, in this order. Where a step is still open, its figure says so.</p>
       <ol class="protocol">
         <li><b>Freeze the baseline.</b> The graded version is tagged in git before anything changes, so panel a is always recoverable.</li>
         <li><b>Write the brief.</b> Who uses the page, what they need from it, and which facts must stay true.</li>

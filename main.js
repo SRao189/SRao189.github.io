@@ -11,37 +11,42 @@ function setSplit(f, percent) {
   f.range.value = String(Math.round(percent));
 }
 
-// The slider works everywhere, with or without the scroll scenes.
+// On wide screens the plates become a/b comparisons with a slider, for every visitor (the slider is
+// user-driven, so it suits reduced motion too). Narrow screens and no-JS keep the side-by-side plates.
 for (const f of figures) {
   f.range.addEventListener("input", () => setSplit(f, Number(f.range.value)));
 }
+const wide = matchMedia("(min-width: 900px)");
+const syncCompare = () => document.documentElement.classList.toggle("compare-on", wide.matches);
+wide.addEventListener("change", syncCompare);
+syncCompare();
 
-const motionOK = matchMedia("(prefers-reduced-motion: no-preference)").matches;
+let lenis = null;
+const onAnchor = (e) => {
+  const a = e.target.closest('a[href^="#"]');
+  const target = a && document.querySelector(a.getAttribute("href"));
+  if (!lenis || !target) return;
+  e.preventDefault();
+  lenis.scrollTo(target, { offset: 0 });
+  target.setAttribute("tabindex", "-1");
+  target.focus({ preventScroll: true });
+};
 
-if (window.gsap && window.ScrollTrigger && motionOK) {
+if (window.gsap && window.ScrollTrigger) {
   gsap.registerPlugin(ScrollTrigger);
 
-  // Smooth scroll only for a mouse or trackpad; touch scrolling stays native.
-  if (window.Lenis && matchMedia("(pointer: fine)").matches) {
-    const lenis = new Lenis({ lerp: 0.1 });
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => lenis.raf(time * 1000));
-    gsap.ticker.lagSmoothing(0);
-    document.querySelectorAll('a[href^="#"]').forEach((a) =>
-      a.addEventListener("click", (e) => {
-        const target = document.querySelector(a.getAttribute("href"));
-        if (!target) return;
-        e.preventDefault();
-        lenis.scrollTo(target, { offset: 0 });
-        target.setAttribute("tabindex", "-1");
-        target.focus({ preventScroll: true });
-      }),
-    );
-  }
+  // Scroll scenes and smooth scroll only for a wide screen, a mouse or trackpad, and no reduced-motion
+  // preference. gsap.matchMedia reverts everything if any of those stop being true mid-visit.
+  gsap.matchMedia().add("(min-width: 900px) and (pointer: fine) and (prefers-reduced-motion: no-preference)", () => {
+    if (window.Lenis) {
+      lenis = new Lenis({ lerp: 0.1 });
+      lenis.on("scroll", ScrollTrigger.update);
+      gsap.ticker.add(raf);
+      gsap.ticker.lagSmoothing(0);
+      document.addEventListener("click", onAnchor);
+    }
 
-  // Each figure pins while scroll wipes from the baseline (a) to the revision (b).
-  // ponytail: desktop only; phones get the side-by-side static plate (pre-mortem T1).
-  gsap.matchMedia().add("(min-width: 900px)", () => {
+    // Each figure pins while scroll wipes from the baseline (a) to the revision (b).
     const triggers = figures.map((f) =>
       ScrollTrigger.create({
         trigger: f.fig,
@@ -62,6 +67,12 @@ if (window.gsap && window.ScrollTrigger && motionOK) {
     // start each figure on its baseline (or its revision if already scrolled past)
     triggers.forEach((t, i) => setSplit(figures[i], t.progress >= 1 ? 0 : 100));
     return () => {
+      if (lenis) {
+        document.removeEventListener("click", onAnchor);
+        gsap.ticker.remove(raf);
+        lenis.destroy();
+        lenis = null;
+      }
       triggers.forEach((t) => t.kill());
       figures.forEach((f) => {
         f.fig.classList.remove("is-scrubbing");
@@ -69,4 +80,8 @@ if (window.gsap && window.ScrollTrigger && motionOK) {
       });
     };
   });
+}
+
+function raf(time) {
+  lenis?.raf(time * 1000);
 }
